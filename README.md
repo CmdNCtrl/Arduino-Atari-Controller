@@ -24,7 +24,7 @@ https://content.arduino.cc/assets/Pinout-Micro_latest.pdf
 ## Atari Pin Out:
 
 Console-side joystick port seen from the front.
-![[Pasted image 20260824120546.png|320]]
+![atari-de-9-connector-pinout](images/atari-de-9-connector-pinout.png)
 
 | Pin                  | Joystick Controls         | DE-9 |
 | -------------------- | ------------------------- | ---- |
@@ -40,7 +40,7 @@ Console-side joystick port seen from the front.
 
 ## Arduino Micro Pin Out
 
-![Pasted image 20260824120546](images/Pasted image 20260824120546.png)
+![arduino-micro-pinout](images/arduino-micro-pinout.png)
 
 | Micro pin | Use for Atari project?          | Notes                                                  |
 | --------- | ------------------------------- | ------------------------------------------------------ |
