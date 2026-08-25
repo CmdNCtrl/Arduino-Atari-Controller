@@ -40,8 +40,7 @@ Console-side joystick port seen from the front.
 
 ## Arduino Micro Pin Out
 
-
-![[Pasted image 20260824200043.png]]
+![Pasted image 20260824120546](images/Pasted image 20260824120546.png)
 
 | Micro pin | Use for Atari project?          | Notes                                                  |
 | --------- | ------------------------------- | ------------------------------------------------------ |
