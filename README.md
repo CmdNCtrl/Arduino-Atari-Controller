@@ -66,5 +66,7 @@ Console-side joystick port seen from the front.
 | GRD     | Pin 8 / CTS | Ground     |
 | D2      | Pin 6 / DSR | Fire       |
 | D3      | Pin 1 / DCD | Up         |
-|         |             |            |
+| D4      | Pin 2       | Down       |
+| D5      | 3           | Left       |
+| D6      | 4           | Right      |
 
