@@ -56,3 +56,15 @@ Console-side joystick port seen from the front.
 | D11       | Yes                             | Digital input; PWM capable                             |
 | D12       | Yes                             | Digital input; also analog capable                     |
 | D13       | Yes, but I'd avoid it initially | Connected to the built-in LED                          |
+
+# Board to Connector Mapping
+
+
+
+| Arduino | Connector   | Controller |
+| ------- | ----------- | ---------- |
+| GRD     | Pin 8 / CTS | Ground     |
+| D2      | Pin 6 / DSR | Fire       |
+| D3      | Pin 1 / DCD | Up         |
+|         |             |            |
+
