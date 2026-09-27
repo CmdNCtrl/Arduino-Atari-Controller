@@ -81,3 +81,6 @@ https://github.com/MHeironimus/ArduinoJoystickLibrary
 1. Download https://github.com/MHeironimus/ArduinoJoystickLibrary/archive/master.zip
 2. In the Arduino IDE, select `Sketch` > `Include Library` > `Add .ZIP Library...`. Browse to where the downloaded ZIP file is located and click `Open`. The Joystick library's examples will now appear under `File` > `Examples` > `Joystick`.
 
+# Final Product
+
+![](images/final-wireup.jpeg)
