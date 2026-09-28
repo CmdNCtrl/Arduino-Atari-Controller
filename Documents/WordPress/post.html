@@ -1,0 +1,406 @@
+<!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide"><!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">I'm not sure what lead you here, but if you just want the code to be able to connect an Atari controller to a computer, using an Arduino Micro, head on over to <a href="https://github.com/CmdNCtrl/Arduino-Atari-Controller">my GitHub project</a>. If you want to learn more about how I worked through this project, read on. </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">If you have any questions, comments or feedback, leave them below! </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Introduction</h2>
+<!-- /wp:heading -->
+
+<!-- wp:group -->
+<div class="wp-block-group"><!-- wp:columns {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<div class="wp-block-columns" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:column {"width":"50%"} -->
+<div class="wp-block-column" style="flex-basis:50%"><!-- wp:image {"id":739,"linkDestination":"media","style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<figure class="wp-block-image" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><a href="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/img_2021.jpeg"><img src="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/img_2021.jpeg?w=1024" alt="" class="wp-image-739" /></a><figcaption class="wp-element-caption">Atari VCS "Heavy Sixer"</figcaption></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"50%"} -->
+<div class="wp-block-column" style="flex-basis:50%"><!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The Atari was my first video game system and I still enjoy the games to this day.  Given I also like technology, I've been very interested in the approachability of the Atari, the controls and the 6502 chip.  Where the complexity of a modern game or gaming machine is nearly incomprehensible, the Atari is much more approachable.</p>
+<!-- /wp:paragraph -->
+
+</div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">Another interest I've had is where hardware meets software.  Because of this interest, I was looking for a project to use an Arduino.   Putting all these interests together, I decided to create a project tha would allow me connect my real CX-40 Atari joystick to my modern computer to play the Atari emulator, Stella.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">To be clear, what I did is not unique, it has been done a millions times in a million different ways.  In fact, I have a commerical (now discontinued) product called <strong>2600-Daptor</strong> that does exactly what I've done in a nice professional package.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The original CX-40 Atari joystick has a straightforward vocabulary: up, down, left, right, and fire.   It connects to the Atari with a simple DE-9, 9 pin, connector.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":742,"sizeSlug":"large","linkDestination":"media","style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<figure class="wp-block-image size-large" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><a href="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/img_1103-edited.jpeg"><img src="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/img_1103-edited.jpeg?w=1024" alt="" class="wp-image-742" /></a><figcaption class="wp-element-caption">Original Atari CX-40 Joystick with DE-9 Connector</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">To solve this problem, I need to connect the controller's male DE-9, to a female DE-9 that I could wire to an Arduino board.   The Arduino board could then attach to the computer via USB.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<figure class="wp-block-image" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><img src="https://raw.githubusercontent.com/CmdNCtrl/Arduino-Atari-Controller/main/images/arduino-micro-pinout.png" alt="Arduino Micro pinout diagram" /><figcaption class="wp-element-caption">Arduino Micro pinout reference used for the controller interface.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">My Arduino Atari Controller project was about taking those inputs and building a bridge to USB, using an Arduino Micro and a DE-9 breakout connector.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The build brought together wiring, small Arduino programs, and a USB joystick library. But one of the most useful moments came before the USB work: the board could detect a connection when I shorted it directly, yet nothing happened when I used the joystick.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The explanation turned out to be in a screw terminal.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":728,"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<figure class="wp-block-image" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><img src="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/final-wireup.jpeg" alt="The project’s final wiring, as documented in the repository" class="wp-image-728" /><figcaption class="wp-element-caption">The wiring photograph from the project repository.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:group -->
+<div class="wp-block-group"><!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Parts list</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">These are the main parts I bought for the build, with the product links saved in my project notes:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><a href="https://store-usa.arduino.cc/products/arduino-micro">Arduino Micro</a> — the board that reads the joystick inputs and connects to the computer over USB.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><a href="https://www.amazon.com/dp/B073RGGDKH">DE-9 breakout connector</a> — makes the joystick connector’s individual pins accessible through screw terminals.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><a href="https://www.amazon.com/dp/B0H2F7Z6D5">Solderless breadboard</a> — holds the Arduino and provides a convenient way to prototype the connections.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The setup also uses connecting wires, a USB data cable, and my Atari CX-40 joystick.</p>
+<!-- /wp:paragraph -->
+
+</div>
+<!-- /wp:group -->
+
+<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Making a Connection</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The first thing I needed to understand was how to connect the Atari controller to the Arduino board.  I started with understanding the Atari side, the DE-9 connector.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 2)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
+<h3 class="wp-block-heading has-body-font-family has-medium-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 2);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">DE-9 Connector</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The Atari joystick connects through a <strong>DE-9 connector</strong>, a nine-contact member of the&nbsp;<a href="https://al.y-ic.com/datasheet/a2/DEMA9SA183F0.pdf">D-subminiature family developed by Cannon in 1952</a>.&nbsp;<a href="https://tedium.co/2022/08/24/atari-2600-joystick-port-history/">Atari adopted this connector for the Video Computer System, later known as the Atari 2600, when it launched in 1977</a>, and the design went on to become a common joystick interface on other home computers. </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">For the basic joystick,&nbsp;<a href="https://www.atarimania.com/2600/files/vcs_domestic_field_service_manual.pdf">the wiring uses only six of the nine positions: four for direction, one for fire, and a shared ground</a>. If you look closely at the end of the joystick’s connector, you can see that some holes have no metal contacts inside, the unused positions don’t need an electrical connection. Moving the stick or pressing fire closes the corresponding switch, which is what makes this controller such an approachable starting point for an Arduino project.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:columns {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<div class="wp-block-columns" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:column {"width":"50%"} -->
+<div class="wp-block-column" style="flex-basis:50%"><!-- wp:image {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<figure class="wp-block-image" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><img src="https://raw.githubusercontent.com/CmdNCtrl/Arduino-Atari-Controller/main/images/atari-de-9-connector-pinout.png" alt="Atari DE-9 joystick connector pinout, viewed from the front of the console-side port" /><figcaption class="wp-element-caption">Atari DE-9 pinout, viewed from the front of the console-side port.</figcaption></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"50%"} -->
+<div class="wp-block-column" style="flex-basis:50%"><!-- wp:table {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<figure class="wp-block-table" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><table class="has-fixed-layout"><thead><tr><th class="has-text-align-center" data-align="center">Controller function</th><th class="has-text-align-center" data-align="center">Atari DE-9 pin</th></tr></thead><tbody><tr><td class="has-text-align-center" data-align="center">Fire</td><td class="has-text-align-center" data-align="center">6</td></tr><tr><td class="has-text-align-center" data-align="center">Up</td><td class="has-text-align-center" data-align="center">1</td></tr><tr><td class="has-text-align-center" data-align="center">Down</td><td class="has-text-align-center" data-align="center">2</td></tr><tr><td class="has-text-align-center" data-align="center">Left</td><td class="has-text-align-center" data-align="center">3</td></tr><tr><td class="has-text-align-center" data-align="center">Right</td><td class="has-text-align-center" data-align="center">4</td></tr><tr><td class="has-text-align-center" data-align="center">Ground</td><td class="has-text-align-center" data-align="center">8</td></tr></tbody></table></figure>
+<!-- /wp:table --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 2)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
+<h3 class="wp-block-heading has-body-font-family has-medium-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 2);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Arduino Micro Pins</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">Another concept I learned about was the concept of a "pull up" resistor.  In digital electronics, when a button <em><strong>isn't</strong></em> pressed, the switch is "open".  However, you can't reliably use such a set up because that pin can pick up electrical noise which would produce unpredictable readings.  Pins like this are said to be "floating".  </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:columns {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<div class="wp-block-columns" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":758,"sizeSlug":"large","linkDestination":"media","style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<figure class="wp-block-image size-large" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><a href="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/pull-up-resistor-diagram-open.png"><img src="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/pull-up-resistor-diagram-open.png?w=512" alt="" class="wp-image-758" /></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">To address this, digital circuits can use a "pull up" resistor. Below is a diagram to show how the circuit is wired.  When the switch is open the circuit is read as <code>HIGH</code>. </p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:columns {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<div class="wp-block-columns" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":760,"sizeSlug":"large","linkDestination":"media","style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<figure class="wp-block-image size-large" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><a href="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/pull-up-resistor-diagram-closed.jpg"><img src="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/pull-up-resistor-diagram-closed.jpg?w=512" alt="" class="wp-image-760" /></a></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">When the circuit is closed, power flows from 5 V to ground and the input pin is read as <code>LOW</code>. </p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">Rather than having to complicate the circuitry of the the Arduino has &nbsp;<a href="https://docs.arduino.cc/learn/microcontrollers/digital-pins/">built-in pull-up resistors</a>&nbsp; to solve this. Setting a pin to&nbsp;<code>INPUT_PULLUP</code> enables an internal resistor that gently pulls the input toward the Micro’s 5-volt supply, giving it a steady&nbsp;<code>HIGH</code>&nbsp;reading while the switch is open. Pressing the button connects that input to ground, making it read&nbsp;<code>LOW</code>; the resistor limits the current flowing from the supply to ground. This simplified my wiring because I didn’t need to add an external resistor for each switch—just connect each controller signal to an input and the controller’s common ground to the Arduino’s GND. The slightly counterintuitive result is that&nbsp;<code>LOW</code>, or&nbsp;<code>0</code>, means pressed, while&nbsp;<code>HIGH</code>, or&nbsp;<code>1</code>, means released.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 2)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
+<h3 class="wp-block-heading has-body-font-family has-medium-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 2);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Arduino Pin Options</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The&nbsp;<a href="https://docs.arduino.cc/hardware/micro/">Arduino Micro’s pins</a>&nbsp;also became less intimidating once I understood their different jobs. Power and ground pins provide electrical connections, digital input/output pins read or produce&nbsp;<code>HIGH</code>&nbsp;and&nbsp;<code>LOW</code>&nbsp;signals, and analog-capable inputs measure a range of voltages. Some pins have additional capabilities, such as PWM output or communication interfaces, so these categories overlap. </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">For this joystick, each control is simply a switch, making ordinary digital inputs a good fit. I used D2 for fire and D3 through D6 for up, down, left, and right, with each configured as&nbsp;<code>INPUT_PULLUP</code>. Those pins have other capabilities too, but this project only needs them to answer one question: is the switch open or closed?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 2)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
+<h3 class="wp-block-heading has-body-font-family has-medium-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 2);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Pin Mapping</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">Now that I know the right DE-9 pins and Arduino pins to use, I created a mapping table so that I could start to wire them up on the breadboard. </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<figure class="wp-block-table" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><table class="has-fixed-layout"><thead><tr><th>Controller function</th><th>Atari DE-9 pin</th><th>Arduino Micro connection</th></tr></thead><tbody><tr><td>Fire</td><td>6</td><td>D2</td></tr><tr><td>Up</td><td>1</td><td>D3</td></tr><tr><td>Down</td><td>2</td><td>D4</td></tr><tr><td>Left</td><td>3</td><td>D5</td></tr><tr><td>Right</td><td>4</td><td>D6</td></tr><tr><td>Ground</td><td>8</td><td>GND</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">A small set of parts and a clear first goal</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The hardware centered on an Arduino Micro, a breadboard, and a DE-9 breakout connector for the Atari controller. The breakout made the controller’s individual connections accessible to the Arduino.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">I have never used an Aduino before and was not familiar with how to program it. The immediate goal was simple: read the fire button. Once that worked, the same approach could be extended to the four directions. USB reporting added another layer, translating those physical inputs into gamepad controls.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code {"tokenizedLines":[[["dm9pZCBzZXR1cCgpIHs="]],[["ICAvLyBwdXQgeW91ciBzZXR1cCBjb2RlIGhlcmUsIHRvIHJ1biBvbmNlOg=="]],[["ICBwaW5Nb2RlKDIsIElOUFVUX1BVTExVUCk7IC8vIFNldCBwaW4gMiBmb3IgYnV0dG9u"]],[["ICBTZXJpYWwuYmVnaW4oOTYwMCk7"]],[["IA=="]],[[""]],[["fQ=="]],[["IFN0cmluZyBidXR0b24gPSAiUmVsZWFzZWQiOw=="]],[[""]],[[""]],[["dm9pZCBsb29wKCkgew=="]],[["ICAvLyBwdXQgeW91ciBtYWluIGNvZGUgaGVyZSwgdG8gcnVuIHJlcGVhdGVkbHk6"]],[[""]],[[""]],[["ICBpbnQgRmlyZSA9IGRpZ2l0YWxSZWFkKDIpOw=="]],[["ICAvLyBTZXJpYWwucHJpbnRsbihGaXJlKTs="]],[["ICAvLyBkZWxheSgxMDAwKTs="]],[["ICBpZiAoRmlyZSA9PSAwICYmIGJ1dHRvbiA9PSAiUmVsZWFzZWQiKSB7IC8vIFVzZSAiJiYiIGluc3RlYWQgb2YgImFuZCI="]],[["ICAgIGJ1dHRvbiA9ICJQcmVzc2VkIjs="]],[["ICAgIFNlcmlhbC5wcmludGxuKGJ1dHRvbik7"]],[["ICB9IGVsc2UgaWYgKEZpcmUgPT0gMSAmJiBidXR0b24gPT0gIlByZXNzZWQiKXs="]],[["ICAgIGJ1dHRvbiA9ICJSZWxlYXNlZCI7"]],[["ICAgIFNlcmlhbC5wcmludGxuKGJ1dHRvbik7"]],[["ICB9"]],[[""]],[["IA=="]],[[""]],[["fQ=="]]],"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<pre class="wp-block-code" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><code>void setup() {
+  // put your setup code here, to run once:
+  pinMode(2, INPUT_PULLUP); // Set pin 2 for button
+  Serial.begin(9600);
+ 
+
+}
+ String button = &#034;Released&#034;;
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+
+  int Fire = digitalRead(2);
+  // Serial.println(Fire);
+  // delay(1000);
+  if (Fire == 0 &amp;&amp; button == &#034;Released&#034;) { // Use &#034;&amp;&amp;&#034; instead of &#034;and&#034;
+    button = &#034;Pressed&#034;;
+    Serial.println(button);
+  } else if (Fire == 1 &amp;&amp; button == &#034;Pressed&#034;){
+    button = &#034;Released&#034;;
+    Serial.println(button);
+  }
+
+ 
+
+}</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The <a href="https://github.com/CmdNCtrl/Arduino-Atari-Controller/blob/main/README.md">project README</a> collects the hardware references, pinout diagrams, wiring map, and joystick-library setup instructions.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">The first obstacle: a button that would not register</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">My journal entry for August 24, 2026 captures the first debugging session. The Arduino could read an input when I shorted the connection, but it could not read it through the joystick and breakout.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">That observation helped narrow the problem. A direct connection produced a response, so the next place to look was the physical path between the controller and the board. I checked continuity in the connector, which was OK, and then moved on to the breakout.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The problem was the breakout terminal: it had been screwed the wrong way. After correcting that, I was able to write the first program to detect a fire-button press.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">It was a small fix, but a useful lesson from the build. Before changing the program, check whether the signal can actually reach it. The <a href="https://github.com/CmdNCtrl/Arduino-Atari-Controller/blob/main/Documents/Journal.md">build journal</a> records that breakthrough, along with my first notes about learning debouncing.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The repository’s Atari pinout is shown from the front of the console-side port. That viewing direction matters when matching the diagram to the connector; the pin numbers are the reference to follow.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<figure class="wp-block-image" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><img src="https://raw.githubusercontent.com/CmdNCtrl/Arduino-Atari-Controller/main/images/atari-de-9-connector-pinout.png" alt="Atari DE-9 joystick connector pinout, viewed from the front of the console-side port" /><figcaption class="wp-element-caption">Atari DE-9 pinout, viewed from the front of the console-side port.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The sketches configure the inputs with <code>INPUT_PULLUP</code>. In this arrangement, an idle input reads high, and an activated control pulls the input to ground so it reads low. In the program, that means <code>0</code> represents a pressed button or an active direction.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">That detail becomes especially useful later, when translating a physical button press into a USB gamepad event.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Building the software in manageable pieces</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The repository preserves several small sketches, each tackling a different part of the interface. Together, they show how the project can be understood one layer at a time.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 2)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
+<h3 class="wp-block-heading has-body-font-family has-medium-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 2);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Reading the fire button</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The <a href="https://github.com/CmdNCtrl/Arduino-Atari-Controller/blob/main/ButtonTest/ButtonTest.ino">ButtonTest sketch</a> reads D2 and prints a message when the fire button changes state.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">It keeps track of whether the button was previously pressed or released. That lets it print a new message only when something changes, making the output easier to follow than a continuous stream of identical readings.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">This was the smallest useful test: one physical input, one state change, and a visible response in the Serial Monitor.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 2)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
+<h3 class="wp-block-heading has-body-font-family has-medium-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 2);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Adding the four directions</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The <a href="https://github.com/CmdNCtrl/Arduino-Atari-Controller/blob/main/ReadButtonAndDirections/ReadButtonAndDirections/ReadButtonAndDirections.ino">ReadButtonAndDirections sketch</a> extends that pattern to all five inputs. It reports when each direction starts and stops, alongside the fire-button messages.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">This creates a way to check the controller wiring before involving USB gamepad behavior. Each control has its own readable response.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 2)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
+<h3 class="wp-block-heading has-body-font-family has-medium-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 2);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Lesson on Switch "Bounce"</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">One unexpected lesson was something called <strong>switch bounce</strong>. I had assumed that pressing a button produced one clean electrical change. In reality, the controller’s mechanical contacts can briefly make and break contact as they settle, and the Arduino can read those rapid changes as multiple transitions from a single press. What felt like one action in my hand could look like several events in software. This was the physics of the controller showing up as an issue I had to resolve in the program—a process called <strong>debouncing</strong>. I would never have realized this was happening if this project hadn’t taken me into the interface between hardware and software.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The sketch includes a 20-millisecond delay labeled as debouncing. The delay slows the polling as a simple first measure, though it does not implement a full check that an input has remained stable for a specified time.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 2)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"medium","fontFamily":"body"} -->
+<h3 class="wp-block-heading has-body-font-family has-medium-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 2);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Testing the USB side separately</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The <a href="https://github.com/CmdNCtrl/Arduino-Atari-Controller/blob/main/JoystickBasicButtonTest/JoystickBasicButtonTest.ino">JoystickBasicButtonTest sketch</a> isolates another part of the problem. It initializes a USB gamepad, waits, sends a button press, and then releases it without reading the Atari controller.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">That separation is useful: the physical input test checks the controller and wiring, while the basic USB test exercises gamepad reporting on its own.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The USB sketches use <a href="https://github.com/MHeironimus/ArduinoJoystickLibrary">MHeironimus’s Arduino Joystick Library</a>, which the project README includes instructions for installing.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Bringing the inputs and USB interface together</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The <a href="https://github.com/CmdNCtrl/Arduino-Atari-Controller/blob/main/JoystickUSBInterface/JoystickUSBInterface.ino">JoystickUSBInterface sketch</a> brings input reading and USB reporting into the same program. It configures a gamepad with one button and X and Y axes, with each axis assigned a range of -1 to 1.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The fire-button conversion is particularly compact:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code {"tokenizedLines":[[["Sm95c3RpY2suc2V0QnV0dG9uKDAsICFGaXJlKTs="]]],"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<pre class="wp-block-code" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><code>Joystick.setButton(0, !Fire);</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The physical input reads <code>0</code> when pressed, while the gamepad button needs a true value for a press. The <code>!</code> operator flips the reading to make those conventions agree.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">In the version currently committed to the repository, right movement sets the X axis to <code>1</code>, and releasing it returns that axis to <code>0</code>. All four directions are read and reported through serial diagnostics, but left, up, and down are not yet mapped to USB axis updates in that file.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">That is the distinction between the wiring milestone and the published firmware snapshot: the README includes a “Final Product” photograph, while the committed USB sketch preserves a partial direction mapping.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">What this build taught me</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The most concrete lesson was the first one: a connection problem can look like a programming problem. Being able to trigger the Arduino directly gave me a useful comparison, and checking continuity led me back to the breakout terminal.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The other lesson is visible in the collection of sketches. A controller interface becomes easier to understand when each piece has a small, observable test: detect one button, read the directions, generate a USB button event, and then combine the pieces.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">That makes the repository useful as a record of the build. It captures the wiring decisions, the first successful input, and the steps toward translating an Atari controller into a USB gamepad.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Explore the project</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The wiring references, Arduino sketches, build journal, and final wiring photograph are available in my <a href="https://github.com/CmdNCtrl/Arduino-Atari-Controller">Arduino Atari Controller repository on GitHub</a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Questions or comments?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">Do you have any questions or comments about what I did? Leave them below! </p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
