@@ -54,11 +54,24 @@ void loop() {
   // Right
   if (Right == 0) {
     Joystick.setXAxis(1);
+  // Left
+  } else if (Left == 0) {
+    Joystick.setXAxis(-1);
   } else {
     Joystick.setXAxis(0);
   }
 
-	// Left
+
+
+  // Up
+  if (Up == 0) {
+    Joystick.setYAxis(-1);
+  } else if (Down == 0) {
+    Joystick.setYAxis(1);
+  } else {
+    Joystick.setYAxis(0);
+  }
+
 
 
   //Original Serial Logic
