@@ -7,7 +7,7 @@
 <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">If you have any questions, comments or feedback, leave them below! </p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<!-- wp:heading {"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
 <h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Introduction</h2>
 <!-- /wp:heading -->
 
@@ -22,9 +22,7 @@
 <!-- wp:column {"width":"50%"} -->
 <div class="wp-block-column" style="flex-basis:50%"><!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
 <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The Atari was my first video game system and I still enjoy the games to this day.  Given I also like technology, I've been very interested in the approachability of the Atari, the controls and the 6502 chip.  Where the complexity of a modern game or gaming machine is nearly incomprehensible, the Atari is much more approachable.</p>
-<!-- /wp:paragraph -->
-
-</div>
+<!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
 <!-- /wp:group -->
@@ -45,32 +43,38 @@
 <figure class="wp-block-image size-large" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><a href="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/img_1103-edited.jpeg"><img src="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/img_1103-edited.jpeg?w=1024" alt="" class="wp-image-742" /></a><figcaption class="wp-element-caption">Original Atari CX-40 Joystick with DE-9 Connector</figcaption></figure>
 <!-- /wp:image -->
 
-<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
-<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">To solve this problem, I need to connect the controller's male DE-9, to a female DE-9 that I could wire to an Arduino board.   The Arduino board could then attach to the computer via USB.</p>
-<!-- /wp:paragraph -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Connectivity</h2>
+<!-- /wp:heading -->
 
-<!-- wp:image {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
-<figure class="wp-block-image" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><img src="https://raw.githubusercontent.com/CmdNCtrl/Arduino-Atari-Controller/main/images/arduino-micro-pinout.png" alt="Arduino Micro pinout diagram" /><figcaption class="wp-element-caption">Arduino Micro pinout reference used for the controller interface.</figcaption></figure>
-<!-- /wp:image -->
+<!-- wp:columns -->
+<div class="wp-block-columns"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":786,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/scr-20260930-svfy-2.png"><img src="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/scr-20260930-svfy-2.png?w=411" alt="" class="wp-image-786" /></a><figcaption class="wp-element-caption">Connectivity Diagram </figcaption></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">But how do I connect a 40+ year old connector to a modern computer? To solve this problem, I need to connect the controller's male DE-9, to a female DE-9 breakout, that I could wire to an Arduino board. The Arduino board could then attach to the computer via USB.  This block diagram shows the connectivity from the joystick through to the computer</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
 
 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
-<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">My Arduino Atari Controller project was about taking those inputs and building a bridge to USB, using an Arduino Micro and a DE-9 breakout connector.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
-<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The build brought together wiring, small Arduino programs, and a USB joystick library. But one of the most useful moments came before the USB work: the board could detect a connection when I shorted it directly, yet nothing happened when I used the joystick.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
-<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The explanation turned out to be in a screw terminal.</p>
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The build brought together wiring, small Arduino programs, and a USB joystick library. </p>
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":728,"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
 <figure class="wp-block-image" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><img src="https://jdrudingphotography.wordpress.com/wp-content/uploads/2026/09/final-wireup.jpeg" alt="The project’s final wiring, as documented in the repository" class="wp-image-728" /><figcaption class="wp-element-caption">The wiring photograph from the project repository.</figcaption></figure>
 <!-- /wp:image -->
 
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
 <!-- wp:group -->
-<div class="wp-block-group"><!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<div class="wp-block-group"><!-- wp:heading {"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
 <h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Parts list</h2>
 <!-- /wp:heading -->
 
@@ -94,12 +98,10 @@
 
 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
 <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The setup also uses connecting wires, a USB data cable, and my Atari CX-40 joystick.</p>
-<!-- /wp:paragraph -->
-
-</div>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<!-- wp:heading {"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
 <h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Making a Connection</h2>
 <!-- /wp:heading -->
 
@@ -128,7 +130,7 @@
 
 <!-- wp:column {"width":"50%"} -->
 <div class="wp-block-column" style="flex-basis:50%"><!-- wp:table {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
-<figure class="wp-block-table" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><table class="has-fixed-layout"><thead><tr><th class="has-text-align-center" data-align="center">Controller function</th><th class="has-text-align-center" data-align="center">Atari DE-9 pin</th></tr></thead><tbody><tr><td class="has-text-align-center" data-align="center">Fire</td><td class="has-text-align-center" data-align="center">6</td></tr><tr><td class="has-text-align-center" data-align="center">Up</td><td class="has-text-align-center" data-align="center">1</td></tr><tr><td class="has-text-align-center" data-align="center">Down</td><td class="has-text-align-center" data-align="center">2</td></tr><tr><td class="has-text-align-center" data-align="center">Left</td><td class="has-text-align-center" data-align="center">3</td></tr><tr><td class="has-text-align-center" data-align="center">Right</td><td class="has-text-align-center" data-align="center">4</td></tr><tr><td class="has-text-align-center" data-align="center">Ground</td><td class="has-text-align-center" data-align="center">8</td></tr></tbody></table></figure>
+<figure style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)" class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th class="has-text-align-center" data-align="center">Controller function</th><th class="has-text-align-center" data-align="center">Atari DE-9 pin</th></tr></thead><tbody><tr><td class="has-text-align-center" data-align="center">Fire</td><td class="has-text-align-center" data-align="center">6</td></tr><tr><td class="has-text-align-center" data-align="center">Up</td><td class="has-text-align-center" data-align="center">1</td></tr><tr><td class="has-text-align-center" data-align="center">Down</td><td class="has-text-align-center" data-align="center">2</td></tr><tr><td class="has-text-align-center" data-align="center">Left</td><td class="has-text-align-center" data-align="center">3</td></tr><tr><td class="has-text-align-center" data-align="center">Right</td><td class="has-text-align-center" data-align="center">4</td></tr><tr><td class="has-text-align-center" data-align="center">Ground</td><td class="has-text-align-center" data-align="center">8</td></tr></tbody></table></figure>
 <!-- /wp:table --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
@@ -177,6 +179,10 @@
 <h3 class="wp-block-heading has-body-font-family has-medium-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 2);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Arduino Pin Options</h3>
 <!-- /wp:heading -->
 
+<!-- wp:image {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<figure class="wp-block-image" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><img src="https://raw.githubusercontent.com/CmdNCtrl/Arduino-Atari-Controller/main/images/arduino-micro-pinout.png" alt="Arduino Micro pinout diagram" /><figcaption class="wp-element-caption">Arduino Micro pinout reference used for the controller interface.</figcaption></figure>
+<!-- /wp:image -->
+
 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
 <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The&nbsp;<a href="https://docs.arduino.cc/hardware/micro/">Arduino Micro’s pins</a>&nbsp;also became less intimidating once I understood their different jobs. Power and ground pins provide electrical connections, digital input/output pins read or produce&nbsp;<code>HIGH</code>&nbsp;and&nbsp;<code>LOW</code>&nbsp;signals, and analog-capable inputs measure a range of voltages. Some pins have additional capabilities, such as PWM output or communication interfaces, so these categories overlap. </p>
 <!-- /wp:paragraph -->
@@ -194,57 +200,106 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:table {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
-<figure class="wp-block-table" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><table class="has-fixed-layout"><thead><tr><th>Controller function</th><th>Atari DE-9 pin</th><th>Arduino Micro connection</th></tr></thead><tbody><tr><td>Fire</td><td>6</td><td>D2</td></tr><tr><td>Up</td><td>1</td><td>D3</td></tr><tr><td>Down</td><td>2</td><td>D4</td></tr><tr><td>Left</td><td>3</td><td>D5</td></tr><tr><td>Right</td><td>4</td><td>D6</td></tr><tr><td>Ground</td><td>8</td><td>GND</td></tr></tbody></table></figure>
+<figure style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)" class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Controller function</th><th>Atari DE-9 pin</th><th>Arduino Micro connection</th></tr></thead><tbody><tr><td>Fire</td><td>6</td><td>D2</td></tr><tr><td>Up</td><td>1</td><td>D3</td></tr><tr><td>Down</td><td>2</td><td>D4</td></tr><tr><td>Left</td><td>3</td><td>D5</td></tr><tr><td>Right</td><td>4</td><td>D6</td></tr><tr><td>Ground</td><td>8</td><td>GND</td></tr></tbody></table></figure>
 <!-- /wp:table -->
 
-<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<!-- wp:heading {"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
 <h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">A small set of parts and a clear first goal</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
-<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The hardware centered on an Arduino Micro, a breadboard, and a DE-9 breakout connector for the Atari controller. The breakout made the controller’s individual connections accessible to the Arduino.</p>
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The hardware centered on an Arduino Micro, a breadboard, and a DE-9 breakout connector for the Atari controller. The breakout made the controller’s individual connections accessible to the Arduino. </p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
-<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">I have never used an Aduino before and was not familiar with how to program it. The immediate goal was simple: read the fire button. Once that worked, the same approach could be extended to the four directions. USB reporting added another layer, translating those physical inputs into gamepad controls.</p>
+<p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">I have never used an Aduino before and was not familiar with how to program it. The immediate goal was simple: read the fire button. Once that worked, and I could see the results in the terminal, the same approach could be extended to the four directions. USB reporting added another layer, translating those physical inputs into gamepad controls.  So, overall, the steps were:</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:code {"tokenizedLines":[[["dm9pZCBzZXR1cCgpIHs="]],[["ICAvLyBwdXQgeW91ciBzZXR1cCBjb2RlIGhlcmUsIHRvIHJ1biBvbmNlOg=="]],[["ICBwaW5Nb2RlKDIsIElOUFVUX1BVTExVUCk7IC8vIFNldCBwaW4gMiBmb3IgYnV0dG9u"]],[["ICBTZXJpYWwuYmVnaW4oOTYwMCk7"]],[["IA=="]],[[""]],[["fQ=="]],[["IFN0cmluZyBidXR0b24gPSAiUmVsZWFzZWQiOw=="]],[[""]],[[""]],[["dm9pZCBsb29wKCkgew=="]],[["ICAvLyBwdXQgeW91ciBtYWluIGNvZGUgaGVyZSwgdG8gcnVuIHJlcGVhdGVkbHk6"]],[[""]],[[""]],[["ICBpbnQgRmlyZSA9IGRpZ2l0YWxSZWFkKDIpOw=="]],[["ICAvLyBTZXJpYWwucHJpbnRsbihGaXJlKTs="]],[["ICAvLyBkZWxheSgxMDAwKTs="]],[["ICBpZiAoRmlyZSA9PSAwICYmIGJ1dHRvbiA9PSAiUmVsZWFzZWQiKSB7IC8vIFVzZSAiJiYiIGluc3RlYWQgb2YgImFuZCI="]],[["ICAgIGJ1dHRvbiA9ICJQcmVzc2VkIjs="]],[["ICAgIFNlcmlhbC5wcmludGxuKGJ1dHRvbik7"]],[["ICB9IGVsc2UgaWYgKEZpcmUgPT0gMSAmJiBidXR0b24gPT0gIlByZXNzZWQiKXs="]],[["ICAgIGJ1dHRvbiA9ICJSZWxlYXNlZCI7"]],[["ICAgIFNlcmlhbC5wcmludGxuKGJ1dHRvbik7"]],[["ICB9"]],[[""]],[["IA=="]],[[""]],[["fQ=="]]],"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
-<pre class="wp-block-code" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><code>void setup() {
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Determine the proper wiring between the DE-9 breakout and the breadboard</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Wire up the fire button first and write a simple program that allowed me to detect the button press at the Mac terminal</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Wire up the rest of the directions (Up, Down, Left, Right) and detect them at the terminal</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Use a USB library to convert those symbols into something that could be interpreted by another program, in this case, the Atari emulator, Stella.  </li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Program 1: Detect the Fire Button</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>First I wanted to create a simple program that would just detect the fire button and print it to the console.  This would be a way to test out our connectivity and process from end today.  Below is my first program with detailed comments included.  You can also download it <a href="https://github.com/CmdNCtrl/Arduino-Atari-Controller/blob/main/ButtonTest/ButtonTest.ino">here</a>.  </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code {"tokenizedLines":[[["Ly8gU2V0IHVwIC0gVGhpcyBzZWN0aW9uIHNldHMgdXAgdGhlIHByb2dyYW0=","tok-comment"]],[["dm9pZA==","tok-typeName"],["IA=="],["c2V0dXA=","tok-variableName tok-definition"],["KA==","tok-punctuation"],["KQ==","tok-punctuation"],["IA=="],["ew==","tok-punctuation"]],[["ICA="],["Ly8gcHV0IHlvdXIgc2V0dXAgY29kZSBoZXJlLCB0byBydW4gb25jZTo=","tok-comment"]],[["ICA="],["cGluTW9kZQ==","tok-variableName"],["KA==","tok-punctuation"],["Mg==","tok-number"],["LA==","tok-punctuation"],["IA=="],["SU5QVVRfUFVMTFVQ","tok-variableName"],["KQ==","tok-punctuation"],["OyA="],["Ly8gU2V0IHBpbiAyIGZvciBidXR0b24=","tok-comment"]],[],[["ICA="],["Ly8gc3RhcnRzIHNlcmlhbCBjb21tdW5pY2F0aW9uIGJldHdlZW4geW91ciBBcmR1aW5vIA==","tok-comment"]],[["ICA="],["Ly8gYW5kIHlvdXIgY29tcHV0ZXIgYXQgOTYwMCBiYXVk4oCUdGhlIGNvbW11bmljYXRpb24gc3BlZWQu","tok-comment"]],[["ICA="],["Ly8gVGhpcyBpcyBuZWVkZWQgc28geW91IGNhbiBwcmludCBvdXRwdXQgb3QgdGhlIHNlcmlhbCBtb25pdG9y","tok-comment"]],[["ICA="],["U2VyaWFs","tok-variableName"],["Lg=="],["YmVnaW4=","tok-propertyName"],["KA==","tok-punctuation"],["OTYwMA==","tok-number"],["KQ==","tok-punctuation"],["Ow=="]],[["fQ==","tok-punctuation"]],[["Ly8gVGhpcyB2YXJpYWJsZSB3aWxsIGJlIHVzZWQgaW4gdGhlIElGIHN0YXRlbWVudCBiZWxvdw==","tok-comment"]],[["IA=="],["U3RyaW5n","tok-typeName"],["IA=="],["YnV0dG9u","tok-variableName"],["ID0g"],["IlJlbGVhc2VkIg==","tok-string"],["Ow=="]],[],[["Ly8gVGhlIGJ1bGsgb2YgdGhlIHByb2dyYW0gaXMgZG9uZSB3aXRoaW4gdGhlIHRoZSBsb29wLg==","tok-comment"]],[["Ly8gV2l0aCBlYWNoIGxvb3AsIGl0IGlzIGNoZWNraW5nIHRoZSBpbnB1dHMgaXQgaXMgcmVjaWV2aW5nIGFuZCB0YWtpbmcgYWN0aW9ucw==","tok-comment"]],[["dm9pZA==","tok-typeName"],["IA=="],["bG9vcA==","tok-variableName tok-definition"],["KA==","tok-punctuation"],["KQ==","tok-punctuation"],["IA=="],["ew==","tok-punctuation"]],[["ICA="],["Ly8gcHV0IHlvdXIgbWFpbiBjb2RlIGhlcmUsIHRvIHJ1biByZXBlYXRlZGx5Og==","tok-comment"]],[],[["ICA="],["Ly8gRXN0YWJsaXNoIGEgdmFyaWFibGUgdGhhdCBob2xkcyB0aGUgdmFsdWUgb2YgdGhlIGZpcmUgYnV0dG9uIGluIHRoaXMgbG9vcC4=","tok-comment"]],[["ICA="],["Ly8gSWYgdGhlIGJ1dHRvbiBpcyBwcmVzc2VkLCB0aGUgZGlnaXRhbFJlYWQgd2lsbCByZWFkICIwIiwgb3RoZXJ3aXNlIGl0IHdpbGwgcmVhZCAiMSI=","tok-comment"]],[["ICA="],["aW50","tok-typeName"],["IA=="],["RmlyZQ==","tok-variableName"],["ID0g"],["ZGlnaXRhbFJlYWQ=","tok-variableName"],["KA==","tok-punctuation"],["Mg==","tok-number"],["KQ==","tok-punctuation"],["Ow=="]],[],[["ICA="],["Ly8gRGVidWcgbGluZXM6","tok-comment"]],[["ICA="],["Ly8gU2VyaWFsLnByaW50bG4oRmlyZSk7","tok-comment"]],[["ICA="],["Ly8gZGVsYXkoMTAwMCk7","tok-comment"]],[],[["ICA="],["Ly8gc2luY2UgdGhpcyBpcyBhIGxvb3AsIGlmIHlvdSBqdXN0IHByaW50IHRvIHRoZSBjb25zb2xlIHdoZW4gYW4gaW5wdXQgaXMgZGV0ZWN0ZWQs","tok-comment"]],[["ICA="],["Ly8gaXQgd2lsbCBzZW5kIGEgY29uc3RhbnQgc3RyZWFtIG9mIG91dHB1dCB0byBjb25zb2xlIChvbmUgdmFsdWUgZm9yIGVhY2ggbG9vcCk=","tok-comment"]],[["ICA="],["Ly8gSSBvbmx5IHdhbnRlZCB0byBzZW5kIGEgdmFsdWUgb25jZSB3aGVuIHRoZSBidXR0b24gd2FzIHByZXNzZWQgYW5kIG9uY2Ugd2hlbiBpdCB3YXMgcmVsZWFzZWQ=","tok-comment"]],[],[["ICA="],["Ly8gVGhpcyBJRiBjb25maXJtIHRoYXQgdGhlIGJ1dHRvbiBpcyBwcmVzc2VkIEFORCB0aGF0IHdlIGRpZG4ndCBzZW5kIFByZXNzZWQgY29tbWFuZCBpbiB0aGUgbGFzdCBsb29w","tok-comment"]],[["ICA="],["aWY=","tok-keyword"],["IA=="],["KA==","tok-punctuation"],["RmlyZQ==","tok-variableName"],["IA=="],["PT0=","tok-operator"],["IA=="],["MA==","tok-number"],["IA=="],["JiY=","tok-operator"],["IA=="],["YnV0dG9u","tok-variableName"],["IA=="],["PT0=","tok-operator"],["IA=="],["IlJlbGVhc2VkIg==","tok-string"],["KQ==","tok-punctuation"],["IA=="],["ew==","tok-punctuation"],["IA=="],["Ly8gVXNlICImJiIgaW5zdGVhZCBvZiAiYW5kIg==","tok-comment"]],[],[["ICAgIA=="],["Ly8gV2hlbiB0aGUgYWJvdmUgY29uZGl0aW9uIGlzIG1ldCwgSSBzZXQgdGhlIHZhcmlhYmxlIHRvICJQcmVzc2VkIiBzbyB0aGF0IGl0IGNhbnQgYmU=","tok-comment"]],[["ICAgIA=="],["Ly8gdHJ1ZSB0aGUgbmV4dCB0aW1lIHRoZSBjb21lcyBhcm91bmQuIA==","tok-comment"]],[["ICAgIA=="],["YnV0dG9u","tok-variableName"],["ID0g"],["IlByZXNzZWQi","tok-string"],["Ow=="]],[["ICAgIA=="],["U2VyaWFs","tok-variableName"],["Lg=="],["cHJpbnRsbg==","tok-propertyName"],["KA==","tok-punctuation"],["YnV0dG9u","tok-variableName"],["KQ==","tok-punctuation"],["Ow=="]],[],[["ICAgIA=="]],[["ICA="],["fQ==","tok-punctuation"],["IA=="],["ZWxzZQ==","tok-keyword"],["IA=="],["aWY=","tok-keyword"],["IA=="],["KA==","tok-punctuation"],["RmlyZQ==","tok-variableName"],["IA=="],["PT0=","tok-operator"],["IA=="],["MQ==","tok-number"],["IA=="],["JiY=","tok-operator"],["IA=="],["YnV0dG9u","tok-variableName"],["IA=="],["PT0=","tok-operator"],["IA=="],["IlByZXNzZWQi","tok-string"],["KQ==","tok-punctuation"],["ew==","tok-punctuation"]],[["ICAgIA=="],["YnV0dG9u","tok-variableName"],["ID0g"],["IlJlbGVhc2VkIg==","tok-string"],["Ow=="]],[["ICAgIA=="],["U2VyaWFs","tok-variableName"],["Lg=="],["cHJpbnRsbg==","tok-propertyName"],["KA==","tok-punctuation"],["YnV0dG9u","tok-variableName"],["KQ==","tok-punctuation"],["Ow=="]],[["ICA="],["fQ==","tok-punctuation"]]],"language":"C++","languageConfidence":"certain","style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<pre class="wp-block-code" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><code>// Set up - This section sets up the program
+void setup() {
   // put your setup code here, to run once:
   pinMode(2, INPUT_PULLUP); // Set pin 2 for button
-  Serial.begin(9600);
- 
 
+  // starts serial communication between your Arduino 
+  // and your computer at 9600 baud—the communication speed.
+  // This is needed so you can print output ot the serial monitor
+  Serial.begin(9600);
 }
+// This variable will be used in the IF statement below
  String button = &#034;Released&#034;;
 
-
+// The bulk of the program is done within the the loop.
+// With each loop, it is checking the inputs it is recieving and taking actions
 void loop() {
   // put your main code here, to run repeatedly:
 
-
+  // Establish a variable that holds the value of the fire button in this loop.
+  // If the button is pressed, the digitalRead will read &#034;0&#034;, otherwise it will read &#034;1&#034;
   int Fire = digitalRead(2);
+
+  // Debug lines:
   // Serial.println(Fire);
   // delay(1000);
+
+  // since this is a loop, if you just print to the console when an input is detected,
+  // it will send a constant stream of output to console (one value for each loop)
+  // I only wanted to send a value once when the button was pressed and once when it was released
+
+  // This IF confirm that the button is pressed AND that we didn&#039;t send Pressed command in the last loop
   if (Fire == 0 &amp;&amp; button == &#034;Released&#034;) { // Use &#034;&amp;&amp;&#034; instead of &#034;and&#034;
+
+    // When the above condition is met, I set the variable to &#034;Pressed&#034; so that it cant be
+    // true the next time the comes around. 
     button = &#034;Pressed&#034;;
     Serial.println(button);
+
+    
   } else if (Fire == 1 &amp;&amp; button == &#034;Pressed&#034;){
     button = &#034;Released&#034;;
     Serial.println(button);
-  }
-
- 
-
-}</code></pre>
+  }</code></pre>
 <!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>[Show picture of terminal output and explain the IF statement.  Provide high level explanation of how Arduino programming works.  Mention sample program]</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.65"}}} -->
 <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The <a href="https://github.com/CmdNCtrl/Arduino-Atari-Controller/blob/main/README.md">project README</a> collects the hardware references, pinout diagrams, wiring map, and joystick-library setup instructions.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<!-- wp:heading {"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
 <h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">The first obstacle: a button that would not register</h2>
 <!-- /wp:heading -->
 
@@ -280,7 +335,7 @@ void loop() {
 <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">That detail becomes especially useful later, when translating a physical button press into a USB gamepad event.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<!-- wp:heading {"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
 <h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Building the software in manageable pieces</h2>
 <!-- /wp:heading -->
 
@@ -344,7 +399,7 @@ void loop() {
 <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The USB sketches use <a href="https://github.com/MHeironimus/ArduinoJoystickLibrary">MHeironimus’s Arduino Joystick Library</a>, which the project README includes instructions for installing.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<!-- wp:heading {"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
 <h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Bringing the inputs and USB interface together</h2>
 <!-- /wp:heading -->
 
@@ -372,7 +427,7 @@ void loop() {
 <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">That is the distinction between the wiring milestone and the published firmware snapshot: the README includes a “Final Product” photograph, while the committed USB sketch preserves a partial direction mapping.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<!-- wp:heading {"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
 <h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">What this build taught me</h2>
 <!-- /wp:heading -->
 
@@ -388,7 +443,7 @@ void loop() {
 <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">That makes the repository useful as a record of the build. It captures the wiring decisions, the first successful input, and the steps toward translating an Atari controller into a USB gamepad.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<!-- wp:heading {"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
 <h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Explore the project</h2>
 <!-- /wp:heading -->
 
@@ -396,7 +451,7 @@ void loop() {
 <p style="margin-top:0;margin-bottom:var(--wp--preset--spacing--10);line-height:1.65">The wiring references, Arduino sketches, build journal, and final wiring photograph are available in my <a href="https://github.com/CmdNCtrl/Arduino-Atari-Controller">Arduino Atari Controller repository on GitHub</a>.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
+<!-- wp:heading {"style":{"spacing":{"margin":{"top":"calc(var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d10) * 3)","bottom":"var:preset|spacing|10"}},"typography":{"lineHeight":"1.3","fontWeight":"600"}},"fontSize":"large","fontFamily":"body"} -->
 <h2 class="wp-block-heading has-body-font-family has-large-font-size" style="margin-top:calc(var(--wp--preset--spacing--10) * 3);margin-bottom:var(--wp--preset--spacing--10);font-weight:600;line-height:1.3">Questions or comments?</h2>
 <!-- /wp:heading -->
 
