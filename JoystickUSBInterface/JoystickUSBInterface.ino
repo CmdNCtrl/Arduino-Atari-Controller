@@ -11,11 +11,11 @@ Joystick_ Joystick(JOYSTICK_DEFAULT_REPORT_ID,JOYSTICK_TYPE_GAMEPAD,
 
 void setup() {
   // put your setup code here, to run once:
-  pinMode(2, INPUT_PULLUP); // Set pin 2 for button
+  pinMode(2, INPUT_PULLUP); // Set pin 2 for Fire button
   pinMode(3, INPUT_PULLUP); // Set pin 3 for Up
-  pinMode(4, INPUT_PULLUP); // Set pin 4 for Up
-  pinMode(5, INPUT_PULLUP); // Set pin 5 for Up
-  pinMode(6, INPUT_PULLUP); // Set pin 6 for Up
+  pinMode(4, INPUT_PULLUP); // Set pin 4 for Down
+  pinMode(5, INPUT_PULLUP); // Set pin 5 for Left
+  pinMode(6, INPUT_PULLUP); // Set pin 6 for Right
   Serial.begin(9600);
 
   // Initialize Joystick Library

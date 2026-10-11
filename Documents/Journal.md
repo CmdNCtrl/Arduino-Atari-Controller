@@ -2,11 +2,11 @@
 
 Trying to sort our what programs I did in what order.
 
-| Program Name                | Purpose                                                      | Folder                  |
-| --------------------------- | ------------------------------------------------------------ | ----------------------- |
+| Program Name                | Purpose                                                                       | Folder                  |
+| --------------------------- | ----------------------------------------------------------------------------- | ----------------------- |
 | ButtonTest.ino              | Detect a button press and print either `Pressed` or `Released` in the console | ButtonTest              |
-| ReadButtonAndDirections.ino | Detect button and direction press and release and write it to the console | ReadButtonAndDirections |
-|                             |                                                              |                         |
+| ReadButtonAndDirections.ino | Detect button and direction press and release and write it to the console     | ReadButtonAndDirections |
+| JoystickUSBInterface.ino    | Final program that incorporates the USB library and the orginal program       | JoystickUSBInterface    |
 
 
 
