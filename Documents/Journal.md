@@ -1,3 +1,21 @@
+# 9/30/26
+
+Trying to sort our what programs I did in what order.
+
+| Program Name                | Purpose                                                      | Folder                  |
+| --------------------------- | ------------------------------------------------------------ | ----------------------- |
+| ButtonTest.ino              | Detect a button press and print either `Pressed` or `Released` in the console | ButtonTest              |
+| ReadButtonAndDirections.ino | Detect button and direction press and release and write it to the console | ReadButtonAndDirections |
+|                             |                                                              |                         |
+
+
+
+# 9/29/26
+
+* Got it working on Linux mint but have not figured out how to get it to work on Mac yet
+* Seems to be some issue with the Arduino not being properly read by Mac as a controller
+* 
+
 # 8/24/26
 
 * Able to make board read when I short the connection, but not via the joystick/break out.
